@@ -26,8 +26,13 @@ static const char *TAG = "app_audio";
 
 static esp_codec_dev_handle_t play_dev_handle;
 
+//EDIT: Declare QueueHandle_t for audio
+QueueHandle_t audio_queue = NULL;
+
 static esp_err_t bsp_audio_reconfig_clk(uint32_t rate, uint32_t bits_cfg, i2s_slot_mode_t ch);
 static esp_err_t bsp_audio_write(void *audio_buffer, size_t len, size_t *bytes_written, uint32_t timeout_ms);
+static void voice_announcement_task(void *param);
+
 
 esp_err_t audio_force_quite(bool ret)
 {
@@ -157,6 +162,21 @@ static void bsp_codec_init()
 
 esp_err_t audio_play_start()
 {
+
+    //EDIT: Create the audio queue
+    if (audio_queue == NULL) {
+        audio_queue = xQueueCreate(10, sizeof(PDM_SOUND_TYPE)); // Queue size: 10
+        if (audio_queue == NULL) {
+            ESP_LOGE(TAG, "Failed to create audio queue");
+            return ESP_FAIL;
+        }
+    }
+
+    //EDIT: Create the voice announcement task
+    xTaskCreate(voice_announcement_task, "VoiceTask", 2048, NULL, 5, NULL);
+    
+    
+    
     esp_err_t ret = ESP_OK;
 
     bsp_codec_init();
@@ -170,4 +190,16 @@ esp_err_t audio_play_start()
     ESP_ERROR_CHECK(audio_player_new(config));
     audio_player_callback_register(audio_callback, NULL);
     return ret;
+}
+
+//EDIT: Add voice announcement task
+static void voice_announcement_task(void *param) {
+    PDM_SOUND_TYPE audio_event;
+
+    while (1) {
+        // Wait for an audio event from the queue
+        if (xQueueReceive(audio_queue, &audio_event, portMAX_DELAY)) {
+            audio_handle_info(audio_event);
+        }
+    }
 }

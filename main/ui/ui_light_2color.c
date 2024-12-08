@@ -189,26 +189,39 @@ static void light_2color_layer_timer_cb(lv_timer_t *tmr)
             light_xor.light_cck = light_set_conf.light_cck;
 
 
-            //EDIT: Announce lighting level using app_audio.c
+            //EDIT: Announce lighting level using app_audio.c (SENDING AUDIO EVENTS TO THE QUQEUE)
             switch (light_set_conf.light_pwm) {
-                case 0:
-                    audio_handle_info(SOUND_TYPE_LIGHT_OFF);
+                case 0: {
+                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_OFF;
+                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
                     break;
-                case 25:
-                    audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_25);
+                }
+                case 25: {
+                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_25;
+                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
                     break;
-                case 50:
-                    audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_50);
+                }
+                case 50: {
+                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_50;
+                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
                     break;
-                case 75:
-                    audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_75);
+                }
+                case 75: {
+                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_75;
+                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
                     break;
-                case 100:
-                    audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_100);
+                }
+                case 100: {
+                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_100;
+                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
                     break;
+                }
                 default:
                     ESP_LOGW("Light", "Unsupported lighting level: %d", light_set_conf.light_pwm);
+                    break;
             }
+
+
 
             if (LIGHT_CCK_COOL == light_xor.light_cck) {
                 RGB_color = (0xFF * light_xor.light_pwm / 100) << 16 | (0xFF * light_xor.light_pwm / 100) << 8 | (0xFF * light_xor.light_pwm / 100) << 0;
