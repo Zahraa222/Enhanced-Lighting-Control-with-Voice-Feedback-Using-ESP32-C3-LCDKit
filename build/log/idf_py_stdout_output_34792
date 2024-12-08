@@ -1,0 +1,860 @@
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xd (SPI_FAST_FLASH_BOOT)
+Saved PC:0x42033068
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x18a8
+load:0x403cc710,len:0xd68
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Dec  4 2024 16:40:03[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (27) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (33) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c3: SPI Mode       : QIO[0m
+[0;32mI (42) boot.esp32c3: SPI Flash Size : 4MB[0m
+[0;32mI (47) boot: Enabling RNG early entropy source...[0m
+[0;32mI (52) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (71) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (78) boot:  2 fctry            WiFi data        01 02 00010000 00006000[0m
+[0;32mI (86) boot:  3 factory          factory app      00 00 00020000 00352000[0m
+[0;32mI (93) boot:  4 storage          Unknown data     01 82 00372000 00064000[0m
+[0;32mI (100) boot: End of partition table[0m
+[0;32mI (105) esp_image: segment 0: paddr=00020020 vaddr=3c080020 size=274a58h (2574936) map[0m
+[0;32mI (483) esp_image: segment 1: paddr=00294a80 vaddr=3fc90e00 size=02144h (  8516) load[0m
+[0;32mI (485) esp_image: segment 2: paddr=00296bcc vaddr=40380000 size=0944ch ( 37964) load[0m
+[0;32mI (495) esp_image: segment 3: paddr=002a0020 vaddr=42000020 size=7aa28h (502312) map[0m
+[0;32mI (569) esp_image: segment 4: paddr=0031aa50 vaddr=4038944c size=077f8h ( 30712) load[0m
+[0;32mI (575) esp_image: segment 5: paddr=00322250 vaddr=50000200 size=00004h (     4) load[0m
+[0;32mI (580) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (581) boot: Disabling RNG early entropy source...[0m
+[0;32mI (598) cpu_start: Unicore app[0m
+[0;32mI (606) cpu_start: Pro cpu start user code[0m
+[0;32mI (606) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (607) app_init: Application information:[0m
+[0;32mI (609) app_init: Project name:     c3_knob_panel[0m
+[0;32mI (615) app_init: App version:      54aafd0-dirty[0m
+[0;32mI (620) app_init: Compile time:     Dec  5 2024 10:59:43[0m
+[0;32mI (626) app_init: ELF file SHA256:  ada34dbdd...[0m
+[0;32mI (631) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (636) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (641) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (646) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (651) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (658) heap_init: At 3FC98870 len 00027790 (157 KiB): RAM[0m
+[0;32mI (664) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (671) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (678) heap_init: At 50000204 len 00001DE4 (7 KiB): RTCRAM[0m
+[0;32mI (685) spi_flash: detected chip: generic[0m
+[0;32mI (689) spi_flash: flash io: qio[0m
+[0;32mI (693) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (700) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (707) coexist: coex firmware version: 4482466[0m
+[0;32mI (712) coexist: coexist rom version 9387209[0m
+[0;32mI (717) main_task: Started on CPU0[0m
+[0;32mI (720) main_task: Calling app_main()[0m
+Free heap size before LVGL init: 276316 bytes
+[0;32mI (729) main: Compile time: Dec  5 2024 11:01:31[0m
+[0;32mI (738) LVGL: Starting LVGL task[0m
+[0;32mI (739) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (747) gc9a01: LCD panel create success, version: 1.2.0[0m
+[0;32mI (878) gpio: GPIO[10]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (878) gpio: GPIO[6]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (885) Knob: Iot Knob Config Succeed, encoder A:10, encoder B:6, direction:0, Version: 0.1.5[0m
+[0;32mI (895) button: IoT Button Version: 3.4.0[0m
+[0;32mI (899) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (909) main: Display LVGL demo[0m
+[0;32mI (912) LVGL_PUB: add group for encoder[0m
+[0;32mI (917) lvgl_basic: Enter home page[0m
+[0;32mI (927) lvgl_basic: Init clock time ok, 0x3fc95328[0m
+Free heap size after LVGL init: 152100 bytes
+[0;32mI (1434) ESP32-C3-LCDKit: BLINK_GPIO setting 8[0m
+[0;32mI (1435) gpio: GPIO[8]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1453) ESP32-C3-LCDKit: Partition size: total: 369221, used: 359432[0m
+[0;32mI (1463) main_task: Returned from app_main()[0m
+[0;31mE (9047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (9047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (9047) task_wdt: Tasks currently running:[0m
+[0;31mE (9047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (9047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (14047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (14047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (14047) task_wdt: Tasks currently running:[0m
+[0;31mE (14047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (14047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (19047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (19047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (19047) task_wdt: Tasks currently running:[0m
+[0;31mE (19047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (19047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (24047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (24047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (24047) task_wdt: Tasks currently running:[0m
+[0;31mE (24047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (24047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (29047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (29047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (29047) task_wdt: Tasks currently running:[0m
+[0;31mE (29047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (29047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (34047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (34047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (34047) task_wdt: Tasks currently running:[0m
+[0;31mE (34047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (34047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (39047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (39047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (39047) task_wdt: Tasks currently running:[0m
+[0;31mE (39047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (39047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (44047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (44047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (44047) task_wdt: Tasks currently running:[0m
+[0;31mE (44047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (44047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (49047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (49047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (49047) task_wdt: Tasks currently running:[0m
+[0;31mE (49047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (49047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (54047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (54047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (54047) task_wdt: Tasks currently running:[0m
+[0;31mE (54047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (54047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (59047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (59047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (59047) task_wdt: Tasks currently running:[0m
+[0;31mE (59047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (59047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (64047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (64047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (64047) task_wdt: Tasks currently running:[0m
+[0;31mE (64047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (64047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (69047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (69047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (69047) task_wdt: Tasks currently running:[0m
+[0;31mE (69047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (69047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (74047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (74047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (74047) task_wdt: Tasks currently running:[0m
+[0;31mE (74047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (74047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (79047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (79047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (79047) task_wdt: Tasks currently running:[0m
+[0;31mE (79047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (79047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (84047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (84047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (84047) task_wdt: Tasks currently running:[0m
+[0;31mE (84047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (84047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (89047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (89047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (89047) task_wdt: Tasks currently running:[0m
+[0;31mE (89047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (89047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (94047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (94047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (94047) task_wdt: Tasks currently running:[0m
+[0;31mE (94047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (94047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (99047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (99047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (99047) task_wdt: Tasks currently running:[0m
+[0;31mE (99047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (99047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (104047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (104047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (104047) task_wdt: Tasks currently running:[0m
+[0;31mE (104047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (104047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (109047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (109047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (109047) task_wdt: Tasks currently running:[0m
+[0;31mE (109047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (109047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (114047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (114047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (114047) task_wdt: Tasks currently running:[0m
+[0;31mE (114047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (114047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (119047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (119047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (119047) task_wdt: Tasks currently running:[0m
+[0;31mE (119047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (119047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (124047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (124047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (124047) task_wdt: Tasks currently running:[0m
+[0;31mE (124047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (124047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (129047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (129047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (129047) task_wdt: Tasks currently running:[0m
+[0;31mE (129047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (129047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (134047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (134047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (134047) task_wdt: Tasks currently running:[0m
+[0;31mE (134047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (134047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (139047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (139047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (139047) task_wdt: Tasks currently running:[0m
+[0;31mE (139047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (139047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (144047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (144047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (144047) task_wdt: Tasks currently running:[0m
+[0;31mE (144047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (144047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (149047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (149047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (149047) task_wdt: Tasks currently running:[0m
+[0;31mE (149047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (149047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (154047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (154047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (154047) task_wdt: Tasks currently running:[0m
+[0;31mE (154047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (154047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (159047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (159047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (159047) task_wdt: Tasks currently running:[0m
+[0;31mE (159047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (159047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (164047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (164047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (164047) task_wdt: Tasks currently running:[0m
+[0;31mE (164047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (164047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (169047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (169047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (169047) task_wdt: Tasks currently running:[0m
+[0;31mE (169047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (169047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (174047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (174047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (174047) task_wdt: Tasks currently running:[0m
+[0;31mE (174047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (174047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (179047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (179047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (179047) task_wdt: Tasks currently running:[0m
+[0;31mE (179047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (179047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (184047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (184047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (184047) task_wdt: Tasks currently running:[0m
+[0;31mE (184047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (184047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (189047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (189047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (189047) task_wdt: Tasks currently running:[0m
+[0;31mE (189047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (189047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (194047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (194047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (194047) task_wdt: Tasks currently running:[0m
+[0;31mE (194047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (194047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (199047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (199047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (199047) task_wdt: Tasks currently running:[0m
+[0;31mE (199047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (199047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (204047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (204047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (204047) task_wdt: Tasks currently running:[0m
+[0;31mE (204047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (204047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (209047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (209047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (209047) task_wdt: Tasks currently running:[0m
+[0;31mE (209047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (209047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (214047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (214047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (214047) task_wdt: Tasks currently running:[0m
+[0;31mE (214047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (214047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (219047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (219047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (219047) task_wdt: Tasks currently running:[0m
+[0;31mE (219047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (219047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (224047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (224047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (224047) task_wdt: Tasks currently running:[0m
+[0;31mE (224047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (224047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (229047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (229047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (229047) task_wdt: Tasks currently running:[0m
+[0;31mE (229047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (229047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
+[0;31mE (234047) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (234047) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (234047) task_wdt: Tasks currently running:[0m
+[0;31mE (234047) task_wdt: CPU 0: LVGL task[0m
+[0;31mE (234047) task_wdt: Print CPU 0 (current core) backtrace[0m
+Print CPU 0 (current core) registers
+Core  0 register dump:
+MEPC    : 0x42033068  RA      : 0x420330a2  SP      : 0x3fc9dfe0  GP      : 0x3fc91600  
+TP      : 0x3fc9e680  T0      : 0x00000000  T1      : 0x00000013  T2      : 0x00000000  
+S0/FP   : 0x00001f02  S1      : 0x00000000  A0      : 0x00000000  A1      : 0x00000000  
+A2      : 0x00001f04  A3      : 0x00000000  A4      : 0x0000001f  A5      : 0xffffff80  
+A6      : 0x000000af  A7      : 0x00000040  S2      : 0x3fc943b4  S3      : 0x00000030  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000001  S7      : 0x00000077  
+S8      : 0x000000ff  S9      : 0x0000001e  S10     : 0x0000004b  S11     : 0x00000000  
+T3      : 0x00000010  T4      : 0x3fc9e878  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x3fc9e680  MTVEC   : 0x3fc9e0f0  MCAUSE  : 0x0000003f  MTVAL   : 0x4203e632  
+MHARTID : 0x3fc95a8c  
