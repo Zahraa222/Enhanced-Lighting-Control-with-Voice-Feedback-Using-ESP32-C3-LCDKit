@@ -7,6 +7,8 @@
 #include "lvgl.h"
 #include <stdio.h>
 #include "app_audio.h" //EDIT:for using audio_handle_info
+#include "freertos/semphr.h" //EDIT:for using mutex
+#include "freertos/event_groups.h" //EDIT:for using event groups
 #include "lv_example_pub.h"
 #include "lv_example_image.h"
 #include "bsp/esp-bsp.h"
@@ -14,6 +16,8 @@
 static bool light_2color_layer_enter_cb(void *layer);
 static bool light_2color_layer_exit_cb(void *layer);
 static void light_2color_layer_timer_cb(lv_timer_t *tmr);
+
+SemaphoreHandle_t light_config_mutex = NULL; //EDIT: Add mutex for light configuration
 
 typedef enum {
     LIGHT_CCK_WARM,
@@ -90,6 +94,15 @@ static void light_2color_event_cb(lv_event_t *e)
 
 void ui_light_2color_init(lv_obj_t *parent)
 {
+    //EDIT: Create mutex for light configuration
+    if (light_config_mutex == NULL) {
+        light_config_mutex = xSemaphoreCreateMutex();
+        if (light_config_mutex == NULL) {
+            ESP_LOGE("Light", "Failed to create light_config_mutex");
+            abort();
+        }
+    }
+    
     light_xor.light_pwm = 0xFF;
     light_xor.light_cck = LIGHT_CCK_MAX;
 
@@ -190,38 +203,28 @@ static void light_2color_layer_timer_cb(lv_timer_t *tmr)
 
 
             //EDIT: Announce lighting level using app_audio.c (SENDING AUDIO EVENTS TO THE QUQEUE)
-            switch (light_set_conf.light_pwm) {
-                case 0: {
-                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_OFF;
-                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
-                    break;
+            if (xSemaphoreTake(light_config_mutex, portMAX_DELAY)) {
+                switch (light_set_conf.light_pwm) {
+                    case 0:
+                        xEventGroupSetBits(lighting_event_group, BIT0);
+                        break;
+                    case 25:
+                        xEventGroupSetBits(lighting_event_group, BIT1);
+                        break;
+                    case 50:
+                        xEventGroupSetBits(lighting_event_group, BIT2);
+                        break;
+                    case 75:
+                        xEventGroupSetBits(lighting_event_group, BIT3);
+                        break;
+                    case 100:
+                        xEventGroupSetBits(lighting_event_group, BIT4);
+                        break;
+                    default:
+                        ESP_LOGW("Light", "Unsupported lighting level: %d", light_set_conf.light_pwm);
                 }
-                case 25: {
-                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_25;
-                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
-                    break;
-                }
-                case 50: {
-                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_50;
-                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
-                    break;
-                }
-                case 75: {
-                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_75;
-                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
-                    break;
-                }
-                case 100: {
-                    PDM_SOUND_TYPE sound_event = SOUND_TYPE_LIGHT_LEVEL_100;
-                    xQueueSend(audio_queue, &sound_event, portMAX_DELAY);
-                    break;
-                }
-                default:
-                    ESP_LOGW("Light", "Unsupported lighting level: %d", light_set_conf.light_pwm);
-                    break;
+                xSemaphoreGive(light_config_mutex);
             }
-
-
 
             if (LIGHT_CCK_COOL == light_xor.light_cck) {
                 RGB_color = (0xFF * light_xor.light_pwm / 100) << 16 | (0xFF * light_xor.light_pwm / 100) << 8 | (0xFF * light_xor.light_pwm / 100) << 0;

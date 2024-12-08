@@ -26,8 +26,8 @@ static const char *TAG = "app_audio";
 
 static esp_codec_dev_handle_t play_dev_handle;
 
-//EDIT: Declare QueueHandle_t for audio
-QueueHandle_t audio_queue = NULL;
+//EDIT: Create lighting event group
+EventGroupHandle_t lighting_event_group = NULL;
 
 static esp_err_t bsp_audio_reconfig_clk(uint32_t rate, uint32_t bits_cfg, i2s_slot_mode_t ch);
 static esp_err_t bsp_audio_write(void *audio_buffer, size_t len, size_t *bytes_written, uint32_t timeout_ms);
@@ -163,11 +163,20 @@ static void bsp_codec_init()
 esp_err_t audio_play_start()
 {
 
-    //EDIT: Create the audio queue
-    if (audio_queue == NULL) {
-        audio_queue = xQueueCreate(10, sizeof(PDM_SOUND_TYPE)); // Queue size: 10
-        if (audio_queue == NULL) {
-            ESP_LOGE(TAG, "Failed to create audio queue");
+    //EDIT: Create the event group
+    if (lighting_event_group == NULL) {
+        lighting_event_group = xEventGroupCreate();
+        if (lighting_event_group == NULL) {
+            ESP_LOGE(TAG, "Failed to create event group");
+            return ESP_FAIL;
+        }
+    }
+
+    // Initialize the mutex
+    if (light_config_mutex == NULL) {
+        light_config_mutex = xSemaphoreCreateMutex();
+        if (light_config_mutex == NULL) {
+            ESP_LOGE(TAG, "Failed to create light_config_mutex");
             return ESP_FAIL;
         }
     }
@@ -192,14 +201,22 @@ esp_err_t audio_play_start()
     return ret;
 }
 
-//EDIT: Add voice announcement task
+// Modify voice_announcement_task to wait for events
 static void voice_announcement_task(void *param) {
-    PDM_SOUND_TYPE audio_event;
-
     while (1) {
-        // Wait for an audio event from the queue
-        if (xQueueReceive(audio_queue, &audio_event, portMAX_DELAY)) {
-            audio_handle_info(audio_event);
-        }
+        // Wait for any sound event bits
+        EventBits_t bits = xEventGroupWaitBits(
+            lighting_event_group,
+            (BIT0 | BIT1 | BIT2 | BIT3 | BIT4), // foe light levels 0%, 25%, 50%, 75%, 100%
+            pdTRUE, // Clear bits on exit
+            pdFALSE, // Wait for any bit
+            portMAX_DELAY
+        );
+
+        if (bits & BIT0) audio_handle_info(SOUND_TYPE_LIGHT_OFF);
+        if (bits & BIT1) audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_25);
+        if (bits & BIT2) audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_50);
+        if (bits & BIT3) audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_75);
+        if (bits & BIT4) audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_100);
     }
 }

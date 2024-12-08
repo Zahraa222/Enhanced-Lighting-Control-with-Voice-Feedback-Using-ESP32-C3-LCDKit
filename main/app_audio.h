@@ -8,7 +8,8 @@
 #pragma once
 #include "esp_err.h"
 #include "freertos/FreeRTOS.h"
-#include "freertos/queue.h"
+#include "freertos/semphr.h"
+#include "freertos/event_groups.h"
 
 typedef enum{
     SOUND_TYPE_KNOB,
@@ -30,4 +31,5 @@ esp_err_t audio_handle_info(PDM_SOUND_TYPE voice);
 
 esp_err_t audio_play_start();
 
-extern QueueHandle_t audio_queue;
+extern EventGroupHandle_t lighting_event_group;
+extern SemaphoreHandle_t light_config_mutex;
