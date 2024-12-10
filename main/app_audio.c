@@ -201,13 +201,13 @@ esp_err_t audio_play_start()
     return ret;
 }
 
-// Modify voice_announcement_task to wait for events
+//EDIT:  Modify voice_announcement_task to wait for events
 static void voice_announcement_task(void *param) {
     while (1) {
         // Wait for any sound event bits
         EventBits_t bits = xEventGroupWaitBits(
             lighting_event_group,
-            (BIT0 | BIT1 | BIT2 | BIT3 | BIT4), // foe light levels 0%, 25%, 50%, 75%, 100%
+            (BIT0 | BIT1 | BIT2 | BIT3 | BIT4), // for light levels 0%, 25%, 50%, 75%, 100%
             pdTRUE, // Clear bits on exit
             pdFALSE, // Wait for any bit
             portMAX_DELAY
