@@ -1,64 +1,141 @@
-## ESP32-C3-LCDKit: Enhanced Lighting Control with Voice Feedback 
+# Enhanced Lighting Control Panel with Voice Announcements
 
-This project demonstrates the use of the ESP32-C3-LCDKit microcontroller to test and process input from a rotary position sensor (knob). This was built upon the knob example provided.  The system was developed using the ESP-IDF 5.3 framework, emphasizing key operating systems concepts such as concurrency control, task scheduling, and resource management. The rotary position sensor’s data is processed in real time to control a lighting system and provide feedback to the user through voice announcements. This feature will announce the current lighting level whenever the knob is rotated to adjust brightness.
+This project enhances the functionality of the Knob Panel Example for the ESP32-C3-LCDKit by adding voice announcements and robust concurrency control. The system is designed to provide auditory feedback for lighting level changes while ensuring responsive user interaction through multitasking.
 
-### Features:
+## Features
 
-* Lighting Control: Adjust brightness using a rotary knob.
-* Voice Announcements: Announce current lighting levels in real-time.
-* Multitasking: Tasks operate concurrently with robust synchronization mechanisms.
+1. **Voice Announcements**:
+   - Audible feedback for lighting levels (0%, 25%, 50%, 75%, 100%).
+   - Audio files are played from SPIFFS storage.
 
-### Deliverables
-* Source Code: Located in the /src folder.
-* Technical Documentation: Available in PDF format in the /docs folder.
-* Demonstration Video: Located in the /videos folder or linked in the README.
+2. **Concurrent Task Management**:
+   - Separate tasks for lighting control and voice announcements using FreeRTOS.
+   - Ensures smooth operation and responsiveness.
 
-### Repository Structure:
-* /src: All source code files.
-* /docs: Technical documentation (PDF format).
-* /media: Media assets used in the project.
-* /videos: Demonstration video link or file.
+3. **Concurrency Control**:
+   - Mutex (`light_config_mutex`) protects shared resources.
+   - Event Groups enable signaling between tasks for lighting level changes.
 
-### Software Required:
+4. **User Interaction**:
+   - Intuitive knob-based brightness adjustment.
+   - Responsive LED panel reflecting the current brightness level.
 
-* The ESP-IDF v5.0 or later is required to use this example. For using the branch of ESP-IDF, the latest branch `release/v5.1` is recommended. For using the tag of ESP-IDF, the tag `v5.1.2` or later is recommended.
-* Please follow the [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/index.html) to set up the development environment.
+## System Architecture
 
-### Hardware Required:
+The system is divided into the following key components:
 
-* An ESP32-C3-LCDkit development board with subboard and speaker
-* An USB Type-C cable for Power supply and programming
+1. **Lighting Control Task**:
+   - Adjusts brightness levels based on user input.
+   - Sets event bits in the `lighting_event_group` to trigger voice announcements.
 
-### Build and Flash
+2. **Voice Announcement Task**:
+   - Waits for event bits and plays corresponding audio files.
+   - Runs independently, ensuring responsiveness.
 
-* 1. Configure the project: `idf.py menuconfig`
+3. **Concurrency Mechanisms**:
+   - `xSemaphoreCreateMutex`: Ensures safe access to `light_set_conf`.
+   - `xEventGroupSetBits` and `xEventGroupWaitBits`: Handle communication between tasks.
 
-* 2. Build and flash the firmware: `idf.py build` and `idf.py flash`
+### Architecture Diagram
 
-* 3. Monitor the output: `idf.py monitor`
+```plaintext
++----------------------------------+
+| User Input (Knob)               |
++----------------------------------+
+                 |
+                 v
++----------------------------------+
+| Lighting Control Task            |
+| Adjusts brightness and sets      |
+| event bits based on knob input.  |
++----------------------------------+
+                 |
+       +--------------------------+
+       | Event Group (Signaling)  |
+       +--------------------------+
+                 |
+                 v
++----------------------------------+
+| Voice Announcement Task          |
+| Plays audio based on event bits. |
++----------------------------------+
+                 |
+                 v
++----------------------------------+
+| SPIFFS (Audio)                   |
++----------------------------------+
+```
 
-(To exit the serial monitor, type ``Ctrl-]``.)
+## Setup Instructions
+### Hardware
+* ESP32-C3-LCDKit
+* Compatible LCD Display
+* Knob Panel
+* LEDs for Brightness Control
+* Speaker for Audio Playback
+### Software
+* ESP-IDF (v5.3.1 or later)
+* Knob Panel Example from ESP32-C3-LCDKit repository
 
-See the [Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) for full steps to configure and use ESP-IDF to build projects.
+## Usage
+### Building and Flashing:
 
-### GUI Control
+* Clone the repository and navigate to the project directory.
+* Configure the project using idf.py menuconfig to set SPIFFS storage paths and audio settings.
+* Build and flash the project:
+   - idf.py build
+   - idf.py flash
+### Running the System:
 
-1. In "Root" page, short press to enter "App" page and long press to restore factory settings.
-2. In "App" page, short press to confirm and long press to exit.
+* Rotate the knob to adjust brightness.
+* Observe the LED panel brightness changes and listen for corresponding voice announcements.
+
+## Code Walkthrough
+### Lighting Control
+The light_2color_layer_timer_cb function in ui_light_2color.c adjusts brightness and sets event bits:
+```
+xSemaphoreTake(light_config_mutex, portMAX_DELAY);
+
+switch (light_set_conf.light_pwm) {
+    case 0:
+        xEventGroupSetBits(lighting_event_group, BIT0);
+        break;
+
+    case 25:
+        xEventGroupSetBits(lighting_event_group, BIT1);
+        break;
+
+    // Additional cases for other levels
+}
+xSemaphoreGive(light_config_mutex);
+```
+### Voice Announcements
+The voice_announcement_task function in app_audio.c waits for event bits and plays audio:
+```
+EventBits_t bits = xEventGroupWaitBits(
+    lighting_event_group,
+    (BIT0 | BIT1 | BIT2 | BIT3 | BIT4),
+    pdTRUE,
+    pdFALSE,
+    portMAX_DELAY
+);
+
+if (bits & BIT0) audio_handle_info(SOUND_TYPE_LIGHT_OFF);
+if (bits & BIT1) audio_handle_info(SOUND_TYPE_LIGHT_LEVEL_25);
+```
+### Concurrency Control
+Mutex ensures safe access to shared resources:
+```
+light_config_mutex = xSemaphoreCreateMutex();
+if (light_config_mutex == NULL) {
+    ESP_LOGE("Light", "Failed to create light_config_mutex");
+    abort();
+}
+```
+## Demonstration Video
 
 
-
-## Troubleshooting
-
-* Program upload failure
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-    * Error message with `A fatal error occurred: Could not open /dev/ttyACM0, the port doesn't exist`: Please first make sure the development board connected, then make board into "Download Boot" by following steps:
-        1. keep press the knob
-        2. short press "REST(SW3)" button
-        3. release the knob
-        4. upload program and reset
-* Program runtime failure
-    * Error message with `i2s_common: i2s_channel_disable : the channel has not been enabled yet`: This is a normal message, please ignore it.
-
-
+## Acknowledgments
+* Based on the Knob Panel Example from the ESP32-C3-LCDKit repository.
+* Built using ESP-IDF.
+For further details, refer to the documentation in the /docs folder.
