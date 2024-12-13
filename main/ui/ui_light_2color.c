@@ -202,7 +202,13 @@ static void light_2color_layer_timer_cb(lv_timer_t *tmr)
             light_xor.light_cck = light_set_conf.light_cck;
 
 
-            //EDIT: Announce lighting level using app_audio.c (SENDING AUDIO EVENTS TO THE QUQEUE)
+            /**
+             * Adjusts the lighting level and announces it using audio events.
+             * This function takes the light configuration mutex and sets the appropriate
+             * event bits in the lighting event group based on the current light PWM value.
+             * It then releases the mutex. The event bits correspond to different lighting
+             * levels and are used to trigger audio announcements.
+             */
             if (xSemaphoreTake(light_config_mutex, portMAX_DELAY)) {
                 switch (light_set_conf.light_pwm) {
                     case 0:

@@ -172,15 +172,6 @@ esp_err_t audio_play_start()
         }
     }
 
-    // Initialize the mutex
-    if (light_config_mutex == NULL) {
-        light_config_mutex = xSemaphoreCreateMutex();
-        if (light_config_mutex == NULL) {
-            ESP_LOGE(TAG, "Failed to create light_config_mutex");
-            return ESP_FAIL;
-        }
-    }
-
     //EDIT: Create the voice announcement task
     xTaskCreate(voice_announcement_task, "VoiceTask", 2048, NULL, 5, NULL);
     
@@ -201,7 +192,21 @@ esp_err_t audio_play_start()
     return ret;
 }
 
-//EDIT:  Modify voice_announcement_task to wait for events
+/**
+ * EDIT
+ * Task to handle voice announcements based on lighting events.
+ *
+ * This task waits for specific event bits that correspond to different light levels.
+ * When an event bit is set, it triggers the appropriate audio announcement.
+ *
+ * Event bits:
+ * - BIT0: Light level 0% (light off)
+ * - BIT1: Light level 25%
+ * - BIT2: Light level 50%
+ * - BIT3: Light level 75%
+ * - BIT4: Light level 100%
+ */
+//EDIT:  Create voice_announcement_task to wait for events
 static void voice_announcement_task(void *param) {
     while (1) {
         // Wait for any sound event bits
