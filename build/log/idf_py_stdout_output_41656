@@ -1,2 +1,0 @@
--- IDF_TARGET is not set, guessed 'esp32c3' from sdkconfig 'C:/Espressif/frameworks/esp-idf-v5.3.1/esp-dev-kits/esp32-c3-lcdkit/examples/knob_panel/sdkconfig.defaults'
--- Found Git: C:/Espressif/tools/idf-git/2.44.0/cmd/git.exe (found version "2.44.0.windows.1") 
