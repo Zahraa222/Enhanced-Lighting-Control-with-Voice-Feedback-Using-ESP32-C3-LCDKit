@@ -38,33 +38,8 @@ The system is divided into the following key components:
 
 ### Architecture Diagram
 
-```plaintext
-+----------------------------------+
-| User Input (Knob)               |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-| Lighting Control Task            |
-| Adjusts brightness and sets      |
-| event bits based on knob input.  |
-+----------------------------------+
-                 |
-       +--------------------------+
-       | Event Group (Signaling)  |
-       +--------------------------+
-                 |
-                 v
-+----------------------------------+
-| Voice Announcement Task          |
-| Plays audio based on event bits. |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-| SPIFFS (Audio)                   |
-+----------------------------------+
-```
+![image](https://github.com/user-attachments/assets/77ec455c-d885-433f-84ad-c07ee499062c)
+
 
 ## Setup Instructions
 ### Hardware
