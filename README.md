@@ -108,7 +108,7 @@ if (light_config_mutex == NULL) {
 }
 ```
 ## Demonstration Video
-
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=Gphw5YrJCwE)
 
 ## Acknowledgments
 * Based on the Knob Panel Example from the ESP32-C3-LCDKit repository.
