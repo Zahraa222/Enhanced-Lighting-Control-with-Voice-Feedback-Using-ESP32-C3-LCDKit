@@ -42,7 +42,7 @@ The system is divided into the following key components:
 
 ### Flowchart Diagram
 
-![image](https://github.com/user-attachments/assets/ae4136d0-ac61-469d-b349-a3452f273d77)
+![image](https://github.com/user-attachments/assets/ef06e157-b221-4b0c-a17b-e8a878cb393c)
 
 
 ## Setup Instructions
