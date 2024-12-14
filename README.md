@@ -40,6 +40,10 @@ The system is divided into the following key components:
 
 ![image](https://github.com/user-attachments/assets/77ec455c-d885-433f-84ad-c07ee499062c)
 
+### Flowchart Diagram
+
+![image](https://github.com/user-attachments/assets/ae4136d0-ac61-469d-b349-a3452f273d77)
+
 
 ## Setup Instructions
 ### Hardware
