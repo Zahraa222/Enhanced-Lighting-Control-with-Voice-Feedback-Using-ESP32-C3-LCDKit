@@ -40,6 +40,10 @@ The system is divided into the following key components:
 
 ![image](https://github.com/user-attachments/assets/77ec455c-d885-433f-84ad-c07ee499062c)
 
+### Flowchart Diagram
+
+![image](https://github.com/user-attachments/assets/ef06e157-b221-4b0c-a17b-e8a878cb393c)
+
 
 ## Setup Instructions
 ### Hardware
@@ -108,7 +112,7 @@ if (light_config_mutex == NULL) {
 }
 ```
 ## Demonstration Video
-
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=Gphw5YrJCwE)
 
 ## Acknowledgments
 * Based on the Knob Panel Example from the ESP32-C3-LCDKit repository.
